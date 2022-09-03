@@ -1,23 +1,23 @@
 <script>
-	import Router from 'svelte-spa-router';
+	import Router, {push} from 'svelte-spa-router';
 	import routes from './routes';
+	
+	import {token, info} from './stores';
+	import {onMount} from 'svelte';
+
+	onMount(() => {
+		token.set(localStorage.getItem('token'))
+		info.set(JSON.parse(localStorage.getItem('userInfo')))
+
+		if (!$info) {
+			push("/login")
+		}
+		if (!$token) {
+			push("/login/update")
+		}
+	})
 </script>
 
 <main>
 	<Router {routes} />
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>

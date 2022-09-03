@@ -1,10 +1,35 @@
 import Home from './routes/Home.svelte';
-import Lorem from './routes/Lorem.svelte';
-import NotFound from './routes/NotFound.svelte';
+
+// signup
+import Basic from './routes/signup/Basic.svelte'
+import Phone from './routes/signup/Phone.svelte'
+import VerifyCode from './routes/signup/VerifyCode.svelte'
+import Password from './routes/signup/Password.svelte'
+import Passcode from './routes/signup/Passcode.svelte'
+
+// login
+import Login from './routes/login/Login.svelte'
+import VerifyLoginCode from './routes/login/VerifyCode.svelte'
+import Update from './routes/login/Update.svelte'
+
+// parent
+import Student from './routes/parent/Student.svelte'
+import Subject from './routes/parent/Subject.svelte'
+
 
 export default {
     '/': Home,
-    '/lorem/:repeat': Lorem,
-    // The catch-all route must always be last
-    '*': NotFound
+
+    '/signup/basic': Basic,
+    '/signup/phone': Phone,
+    '/signup/verify-code': VerifyCode,
+    '/signup/password': Password,
+    '/signup/passcode': Passcode,
+
+    '/login': Login,
+    '/login/verify-code': VerifyLoginCode,
+    '/login/update': Update,
+
+    '/parent/:studentID': Student,
+    '/parent/:studentID/:subjectID': Subject,
 };
