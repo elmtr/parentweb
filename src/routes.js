@@ -16,6 +16,14 @@ import Update from './routes/login/Update.svelte'
 import Student from './routes/parent/Student.svelte'
 import Subject from './routes/parent/Subject.svelte'
 
+// profile
+import Profile from './routes/profile/Profile.svelte'
+import ChangePassword from './routes/profile/ChangePassword.svelte'
+import ChangePasscode from './routes/profile/ChangePasscode.svelte'
+import AddStudent from './routes/profile/AddStudent.svelte'
+import AddStudentVerifyCode from './routes/profile/AddStudentVerifyCode.svelte'
+
+
 
 export default {
     '/': Home,
@@ -32,4 +40,11 @@ export default {
 
     '/parent/:studentID': Student,
     '/parent/:studentID/:subjectID': Subject,
+
+    '/profile': Profile,
+    '/profile/change-password': ChangePassword,
+    '/profile/change-passcode': ChangePasscode,
+    '/profile/add-student': AddStudent,
+    '/profile/add-student/verify-code': AddStudentVerifyCode,
+
 };
